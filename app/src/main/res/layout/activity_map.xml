@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/map_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="0.5"
+    android:orientation="vertical"
+    >
+    <TabHost
+        android:id="@+id/tabHost1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TabWidget
+              android:background="#6699ff"
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/content1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                       <fragment
+                           class="com.google.android.gms.maps.SupportMapFragment"
+                           android:id="@+id/map"
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"/>
+
+
+                        <!-- 지도를 하나 띄우고 클릭한후 버튼을 누르면 새로운 창을 하나 더 띄워
+                    스트리트 뷰를 띄움 !-->
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/content2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <!-- 지도의 랜덤으로 이동 !-->
+                        <Button
+                            android:layout_gravity="center_horizontal"
+                            android:text="새로고침"
+                            android:id="@+id/random"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <fragment
+                            android:id="@+id/randomstreetView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            class="com.google.android.gms.maps.SupportStreetViewPanoramaFragment"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/content3"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- 카드 뷰 형식으로 추천 지를 띄워서
+                        클릭하면 스트리트뷰로 그곳을 띄움!-->
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/recycler_view"
+                            android:scrollbars="vertical"
+                            ></android.support.v7.widget.RecyclerView>
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+
+        </LinearLayout>
+
+
+    </TabHost>
+</LinearLayout>
